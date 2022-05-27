@@ -17,6 +17,9 @@ def find_all_solutions(coin_vec = [0] * 8, already_tried = set(), value = 200) -
         new_coin_vec = coin_vec.copy()
         new_coin_vec[i] += 1
         
+        # If we have already tried new_coin_vec we can short circuit here
+        # to prevent duplicating work, otherwise, we check the solution and
+        # continue adding coins if needed
         hashable_vec = "_".join([str(int) for int in new_coin_vec])
         if hashable_vec in already_tried:
             continue
